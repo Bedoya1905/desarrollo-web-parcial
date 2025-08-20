@@ -22,7 +22,7 @@ html, body {
 
     color: var(--textColor);
 
-    overflow: hidden;
+    /*overflow: hidden;*/
 
 }
 
