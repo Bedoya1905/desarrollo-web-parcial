@@ -138,3 +138,13 @@ main {
     height: 95vh;
 
 }
+
+.game-main {
+    background-color: var(--windowColor);
+    color: var(--textSecundary);
+    width: 230px;
+    padding: 5px;
+}
+.game-main > img {
+    width: 100%;
+}
