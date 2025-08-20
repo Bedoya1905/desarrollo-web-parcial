@@ -140,7 +140,7 @@ main {
 
 }
 
-#offers {
+#offers, #new, #for-you {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
