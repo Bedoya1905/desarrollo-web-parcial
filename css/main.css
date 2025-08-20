@@ -148,8 +148,11 @@ main {
 .game-main > img {
     width: 100%;
 }
-.game-main > h3 {
+.game-main > .game-title {
     font-size: 1.5em;
     margin-top: 10px;
     margin-bottom: 10px;
+}
+.game-main > .game-price {
+    font-size: 2em;
 }
