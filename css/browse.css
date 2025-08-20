@@ -1,0 +1,140 @@
+:root{
+    --mainColor: #201714;
+    --headerColor: #130100;
+    --asideColor: #130100;
+    --windowColor: #ffffff;
+    --textColor: #DBD3C4;
+    --textSecundary: #74665A;
+    --higlight: #B9322C;
+}
+
+
+html, body {
+
+    align-self: center;
+    justify-self: center;
+    margin: auto;
+
+    background-color: var(--mainColor);
+    margin: 0;
+    padding: 0; 
+    width: 100%;
+
+    color: var(--textColor);
+
+    overflow: hidden;
+
+}
+
+
+
+div {
+
+    &.MainDiv{
+
+        display: grid;
+        grid-template-areas:
+            'header header header header header header header'
+            'aside main main main main main main';
+
+    }
+
+    &.ContentHeading{
+
+        padding-right: 2%;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+    }
+
+    &.FeaturedContent{
+
+        display: grid;
+        grid-template-areas:
+            'front title'
+            'front images'
+            'front price';
+        align-items: center;
+        justify-content: left;
+
+
+        height: 200px;
+        background-color: var(--windowColor);
+        padding: 10px 10px 10px 20px;
+        margin-left: 20px;
+        gap: 20px;
+
+        & > .FeaturedContentFront {
+            grid-area:front;
+            width: 300px;
+            height: 180px;
+        }
+        & > .FeaturedContentImages{
+            grid-area:images;
+        }
+        & > h1{grid-area:title; margin-top: 0;}
+        & > p{grid-area:price; margin-bottom: 0;}
+
+    }
+
+    &.ContentLibrary{
+        display: grid;
+    }
+
+}
+
+
+header {
+
+    grid-area:header;
+
+    background-color: var(--headerColor);
+    height: 5vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0px 10px;
+
+
+    & > div.HeaderContainer {
+        display: flex;
+    }
+}
+
+
+aside {
+
+    padding: 3vh 5%;
+
+    grid-area:aside;
+
+    background-color: var(--asideColor);
+    height: 95vh;
+
+    & > h2 {
+        margin-top: 0;
+        margin-bottom: 3px;
+    }
+
+    & > div.AsideContainer {
+        display: grid;
+        grid-template-columns: 1fr 1fr;;
+    }
+
+}
+
+
+main {
+
+    padding-left: 2%;
+
+    grid-area:main;
+
+    background-color: var(--mainColor);
+    height: 95vh;
+
+}
