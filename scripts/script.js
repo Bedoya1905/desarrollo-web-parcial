@@ -18,7 +18,7 @@ class Game {
 
 // Esto va a ser epicamente ineficiente, pero por limitantes de mis habilidades y tiempo tocara de esta forma
 // Esta lista contendra toda la libreria de nuestra tienda digital
-
+// (Fueron los primeros juegos en Amazon)
 const library = [
     new Game(1, "Expedition 33", "RPG", "Sandfall Interactive", "./images/games/ps5/expedition33.jpg", new Date(2025, 3, 24), 50, 0.10),
     new Game(2, "College Football 26", "Sports", "EA Sports", "./images/games/ps5/collegefooball.jpg", new Date(2025, 6, 10), 70, 0.10),
@@ -33,7 +33,7 @@ const setGamesDiscount = (arr = library, docElement) => {
             return `
                 <div class="game-main" id="${id}">
                     <h3 class="game-title">${title}</h3>
-                    <p class="game-date">${release.toString()}</p>
+                    <p class="game-date">${getDateString(release)}</p>
                     <img src="${boxArt}">
                     <p class="game-price">$${price}</p>
                     <button class="game-add-button">Add to cart</button>
@@ -42,5 +42,10 @@ const setGamesDiscount = (arr = library, docElement) => {
         }
     )
 }
+
+const getDateString = (date) => {
+    // Se puede cambiar a fecha menos formal, pero esto funciona perfectamente
+    return `${date.getDay()} / ${date.getMonth() + 1} / ${date.getFullYear()}`;
+};
 
 setGamesDiscount(library, offers);
