@@ -34,16 +34,22 @@ const setGamesDisplay = (arr = library, docElement) => {
         // Toca cambiar esto para que aguente lo del cambio en ofertas
         ({ id, title, release, developer, boxArt, price }) => {
             return `
-                <div class="game-main" id="${id}">
+                <div class="game-main" id="game-window-${id}">
                     <h3 class="game-title">${title}</h3>
                     <p class="game-date">${getDateString(release)}</p>
                     <img src="${boxArt}">
                     <p class="game-price">$${price}</p>
-                    <button class="game-add-button">Add to cart</button>
+                    <button class="game-add-button id=game-button-${id}">Add to cart</button>
                 </div>
             `
         }
     )
+/*
+    gameAddCartButtons = document.querySelectorAll(".game-add-button");
+    gameAddCartButtons.forEach(button => {
+        button.addEventListener("click", () => console.log(`Click en ${button.id}`))
+    });
+*/
 }
 
 const getDateString = (date) => {
