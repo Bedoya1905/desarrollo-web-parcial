@@ -3,11 +3,15 @@
 
 <html>
 
+
+<html>
+
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, intial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagina principal</title>
     <link rel="stylesheet" href="../css/browse.css">
+    <script src="../scripts/browse.js" defer></script>
 </head>
 
 
@@ -20,17 +24,17 @@
 
             <div class="HeaderContainer">
                 <!-- Imagen temporal de la imagen principal de la imagen (porque no se que era lo que estan planeando con este) -->
-                <a href="index.html"><img src="https://storage.needpix.com/rsynced_images/video-game-controller-147039_1280.png" alt="logo" width="35"></a>
-                <a href="pages/browser.html"><button>Browse</button></a>
+                <a href="../index.html"><img src="https://storage.needpix.com/rsynced_images/video-game-controller-147039_1280.png" alt="logo" width="35"></a>
+                <a href="browser.html"><button>Browse</button></a>
             </div>
 
             <div class="HeaderContainer">
-                <a href="pages/wishlist.html"><button>Wishlist</button></a>
-                <a href="pages/cart.html"><button>Cart</button></a>
+                <a href="wishlist.html"><button>Wishlist</button></a>
+                <a href="cart.html"><button>Cart</button></a>
 
                 <form>
-                    <input type="text" id="search" name="search">
-                    <input type="submit" value="submit">
+                    <input type="text" placeholder="search" id="search" name="search">
+                    <input type="submit" value="Search">
                 </form>
             </div>
         </header>
@@ -39,28 +43,94 @@
 
             <h2>Popular Tags</h2>
             <div class="AsideContainer">
-                <p>asa</p>
-                <p>asa</p>
-                <p>asa</p>
-                <p>asa</p>
-                <p>asa</p>
-                <p>asa</p>
-                <p>asa</p>
-                <p>asa</p>
+                <button class="Tag">Rogue-Like</button>
+                <button class="Tag">Shooter</button>
+                <button class="Tag">Action</button>
+                <button class="Tag">Indie</button>
+                <button class="Tag">RPG</button>
+                <button class="Tag">Story</button>
+                <button class="Tag">Strategy</button>
+                <button class="Tag">Simulator</button>
             </div>
 
             <h2>Games by Price</h2>
             <div class="AsideContainer">
-                <p>asa</p>
-                <p>asa</p>
-                <p>asa</p>
+                <label for="Max price">Max price</label>
+                <input type="range" id="Max price" name="Max price" min="0" max="100" value="100" step="20">
+                <label for="Min price">Min price</label>
+                <input type="range" id="Min price" name="Min price" min="0" max="100" value="0" step="20">
             </div>
 
         </aside>
 
-        <main>
+        <main id="main">
 
-            <div class="ContentLibrary"></div>
+            <!--
+            <div class="game-main">
+                <h3 class="game-title">Expedition 33</h3>
+                <p class="game-date">24 de abril de 2025</p>
+                <img src="./images/games/ps5/expedition33.jpg" class="game-boxart">
+                <p class="game-price">$50</p>
+                <button class="game-add-button">Add to cart</button>
+            </div>-->
+            <!-- Temporal -->
+                <!-- Quitar solo en testeo (eliminar despues) 
+            <div class="game-main">
+                <h3 class="game-title">Expedition 33</h3>
+                <p class="game-date">24 de abril de 2025</p>
+                <img src="./images/games/ps5/expedition33.jpg" class="game-boxart">
+                <p class="game-price">$50</p>
+                <button class="game-add-button">Add to cart</button>
+            </div>
+            <div class="game-main">
+                <h3 class="game-title">Expedition 33</h3>
+                <p class="game-date">24 de abril de 2025</p>
+                <img src="./images/games/ps5/expedition33.jpg" class="game-boxart">
+                <p class="game-price">$50</p>
+                <button class="game-add-button">Add to cart</button>
+            </div>
+            <div class="game-main">
+                <h3 class="game-title">Expedition 33</h3>
+                <p class="game-date">24 de abril de 2025</p>
+                <img src="./images/games/ps5/expedition33.jpg" class="game-boxart">
+                <p class="game-price">$50</p>
+                <button class="game-add-button">Add to cart</button>
+            </div>
+            <div class="game-main">
+                <h3 class="game-title">Expedition 33</h3>
+                <p class="game-date">24 de abril de 2025</p>
+                <img src="./images/games/ps5/expedition33.jpg" class="game-boxart">
+                <p class="game-price">$50</p>
+                <button class="game-add-button">Add to cart</button>
+            </div>
+            <div class="game-main">
+                <h3 class="game-title">Expedition 33</h3>
+                <p class="game-date">24 de abril de 2025</p>
+                <img src="./images/games/ps5/expedition33.jpg" class="game-boxart">
+                <p class="game-price">$50</p>
+                <button class="game-add-button">Add to cart</button>
+            </div>
+            <div class="game-main">
+                <h3 class="game-title">Expedition 33</h3>
+                <p class="game-date">24 de abril de 2025</p>
+                <img src="./images/games/ps5/expedition33.jpg" class="game-boxart">
+                <p class="game-price">$50</p>
+                <button class="game-add-button">Add to cart</button>
+            </div>
+            <div class="game-main">
+                <h3 class="game-title">Expedition 33</h3>
+                <p class="game-date">24 de abril de 2025</p>
+                <img src="./images/games/ps5/expedition33.jpg" class="game-boxart">
+                <p class="game-price">$50</p>
+                <button class="game-add-button">Add to cart</button>
+            </div>
+            <div class="game-main">
+                <h3 class="game-title">Expedition 33</h3>
+                <p class="game-date">24 de abril de 2025</p>
+                <img src="./images/games/ps5/expedition33.jpg" class="game-boxart">
+                <p class="game-price">$50</p>
+                <button class="game-add-button">Add to cart</button>
+            </div>-->
             
         </main>
 

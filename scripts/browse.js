@@ -1,8 +1,4 @@
-const offers = document.getElementById("offers");
-const newReleases = document.getElementById("new");
-const forYou = document.getElementById("for-you")
-
-const showMoreOffers = document.getElementById("show-more-offers");
+const main = document.getElementById("main");
 
 // Clase de Game
 // Yo creo que se debe de editar en algun momento en el futuro
@@ -23,15 +19,15 @@ class Game {
 // Esta lista contendra toda la libreria de nuestra tienda digital
 // (Fueron los primeros juegos en Amazon)
 const library = [
-    new Game(1, "Expedition 33", "RPG", "Sandfall Interactive", "./images/games/ps5/expedition33.jpg", new Date(2025, 3, 24), 50, 0.10),
-    new Game(2, "College Football 26", "Sports", "EA Sports", "./images/games/ps5/collegefooball.jpg", new Date(2025, 6, 10), 70, 0.10),
-    new Game(3, "Silent Hill 2", "Survival horror", "Konami", "./images/games/ps5/silenthill2.jpg", new Date(2024, 9, 8), 50, 0.4)
+    new Game(1, "Expedition 33", "RPG", "Sandfall Interactive", "../images/games/ps5/expedition33/front.jpg", new Date(2025, 3, 24), 50, 0.10),
+    new Game(2, "College Football 26", "Sports", "EA Sports", "../images/games/ps5/collegefooball.jpg", new Date(2025, 6, 10), 70, 0.10),
+    new Game(3, "Silent Hill 2", "Survival horror", "Konami", "../images/games/ps5/silenthill2.jpg", new Date(2024, 9, 8), 50, 0.4)
 ];
 
 // Cambiar esto despues al resto de las cosas
 const setGamesDisplay = (arr = library, docElement) => {
     docElement.innerHTML += arr.map(
-        // Toca cambiar esto para que aguente lo del cambio en ofertas
+        // Toca cambiar esto para que aguante lo del cambio en ofertas
         ({ id, title, release, developer, boxArt, price }) => {
             return `
                 <div class="game-main" id="${id}">
@@ -40,8 +36,7 @@ const setGamesDisplay = (arr = library, docElement) => {
                     <img src="${boxArt}">
                     <p class="game-price">$${price}</p>
                     <button class="game-add-button">Add to cart</button>
-                </div>
-            `
+                </div>`
         }
     )
 }
@@ -51,6 +46,4 @@ const getDateString = (date) => {
     return `${date.getDay()} / ${date.getMonth() + 1} / ${date.getFullYear()}`;
 };
 
-setGamesDisplay(library, offers);
-setGamesDisplay(library, newReleases);
-setGamesDisplay(library, forYou);
+setGamesDisplay(library, main);

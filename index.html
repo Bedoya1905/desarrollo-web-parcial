@@ -20,7 +20,7 @@ To do list:
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagina principal</title>
     <link rel="stylesheet" href="css/main.css">
-    <script src="./scripts/script.js" defer></script>
+    <script src="./scripts/hub.js" defer></script>
 </head>
 
 
@@ -42,50 +42,34 @@ To do list:
                 <a href="pages/cart.html"><button>Cart</button></a>
 
                 <form>
-                    <input type="text" id="search" name="search">
-                    <input type="submit" value="submit">
+                    <input type="text" placeholder="search" id="search" name="search">
+                    <input type="submit" value="Search">
                 </form>
             </div>
         </header>
-
-        <aside>
-
-            <h2>Popular Tags</h2>
-            <div class="AsideContainer">
-                <p>asa</p>
-                <p>asa</p>
-                <p>asa</p>
-                <p>asa</p>
-                <p>asa</p>
-                <p>asa</p>
-                <p>asa</p>
-                <p>asa</p>
-            </div>
-
-            <h2>Games by Price</h2>
-            <div class="AsideContainer">
-                <p>asa</p>
-                <p>asa</p>
-                <p>asa</p>
-            </div>
-
-        </aside>
 
         <main>
 
             <div class="ContentHeading"><h1>Featured</h1></div>
             <div class="FeaturedContent">
 
-                <img class="FeaturedContentFront" src="images/temp.jpg">
-                <h1>title</h1>
-                <div class="FeaturedContentImages"></div>
-                <p>price</p>
+                <img class="FeaturedContentFront" src="images/games/ps5/expedition33/front.jpg">
+                <h1>Expedition 33</h1>
+                <div class="FeaturedContentImages">
+                   <img src="images/games/ps5/expedition33/0.jpg"> 
+                   <img src="images/games/ps5/expedition33/1.jpg"> 
+                   <img src="images/games/ps5/expedition33/2.jpg"> 
+                   <img src="images/games/ps5/expedition33/3.jpg"> 
+                   <img src="images/games/ps5/expedition33/4.jpg"> 
+                   <img src="images/games/ps5/expedition33/5.jpg"> 
+                </div>
+                <p>50$</p>
+                <button class="game-add-button">Add to cart</button>
 
             </div>
 
-            <div class="ContentHeading" ><h1>Offers</h1> <button class="showMore" id="show-more-offers">show more</button>
-                
-            </div>
+            <div class="ContentHeading" ><h1>Offers</h1> <a href="pages/browser.html"><button class="showMore" id="show-more-offers">show more</button></a></div>
+            <div class="line"></div>
             <div class="ContentLibrary" id="offers">
                 <!--
                 <div class="game-main">
@@ -155,10 +139,12 @@ To do list:
                 </div>-->
             </div>
 
-            <div class="ContentHeading"><h1>New Releases</h1> <button class="showMore">show more</button></div>
+            <div class="ContentHeading"><h1>New Releases</h1> <a href="pages/browser.html"><button class="showMore">show more</button></a></div>
+            <div class="line"></div>
             <div class="ContentLibrary" id="new"></div>
 
             <div class="ContentHeading"><h1>For you</h1></div>
+            <div class="line"></div>
             <!-- Anotacion, no tengo ni la mas remota idea como comenzar a hacer una lista personalizada para el usuario, tal vez por generos buscados? Pero advierto que con cualquier opcion, estara muy dificil -->
             <div class="ContentLibrary" id="for-you"></div>
             
