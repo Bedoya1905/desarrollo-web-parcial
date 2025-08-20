@@ -19,10 +19,10 @@ html, body {
     margin: 0;
     padding: 0; 
     width: 100%;
-
+    height: 100%;
     color: var(--textColor);
 
-    overflow: hidden;
+    /*overflow: hidden;*/
 
 }
 
@@ -36,7 +36,8 @@ div {
         grid-template-areas:
             'header header header header header header header'
             'aside main main main main main main';
-
+        grid-template-rows: 5vh 1fr;
+        height: 100vh;
     }
 
     &.ContentHeading{
@@ -91,7 +92,7 @@ header {
     grid-area:header;
 
     background-color: var(--headerColor);
-    height: 5vh;
+    /*height: 5vh;*/
 
     display: flex;
     align-items: center;
@@ -113,7 +114,7 @@ aside {
     grid-area:aside;
 
     background-color: var(--asideColor);
-    height: 95vh;
+    height: 100%;
 
     & > h2 {
         margin-top: 0;
@@ -124,7 +125,7 @@ aside {
         display: grid;
         grid-template-columns: 1fr 1fr;;
     }
-
+    
 }
 
 
@@ -135,6 +136,39 @@ main {
     grid-area:main;
 
     background-color: var(--mainColor);
-    height: 95vh;
+    height: 100%;
 
+}
+
+#offers, #new, #for-you {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+/* Estilos para la caja del juego en pantalla */
+.game-main {
+    background-color: var(--windowColor);
+    color: var(--textSecundary);
+    width: 230px;
+    padding: 5px;
+    margin: 10px;
+}
+.game-main > img {
+    width: 100%;
+}
+.game-main > .game-title {
+    font-size: 1.5em;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.game-main > .game-price {
+    font-size: 2em;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.game-main > .game-add-button {
+    margin: 0 auto;
+    width: 100%;
+    padding: 5px;
 }
