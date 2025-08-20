@@ -1,4 +1,7 @@
 const offers = document.getElementById("offers");
+const newReleases = document.getElementById("new");
+const forYou = document.getElementById("for-you")
+
 const showMoreOffers = document.getElementById("show-more-offers");
 
 // Clase de Game
@@ -26,7 +29,7 @@ const library = [
 ];
 
 // Cambiar esto despues al resto de las cosas
-const setGamesDiscount = (arr = library, docElement) => {
+const setGamesDisplay = (arr = library, docElement) => {
     docElement.innerHTML += arr.map(
         // Toca cambiar esto para que aguente lo del cambio en ofertas
         ({ id, title, release, developer, boxArt, price }) => {
@@ -48,4 +51,6 @@ const getDateString = (date) => {
     return `${date.getDay()} / ${date.getMonth() + 1} / ${date.getFullYear()}`;
 };
 
-setGamesDiscount(library, offers);
+setGamesDisplay(library, offers);
+setGamesDisplay(library, newReleases);
+setGamesDisplay(library, forYou);
