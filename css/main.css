@@ -140,6 +140,11 @@ main {
 
 }
 
+#offers {
+    display: flex;
+}
+
+/* Estilos para la caja del juego en pantalla */
 .game-main {
     background-color: var(--windowColor);
     color: var(--textSecundary);
