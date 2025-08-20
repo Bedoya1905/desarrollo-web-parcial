@@ -142,6 +142,8 @@ main {
 
 #offers {
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 /* Estilos para la caja del juego en pantalla */
@@ -150,6 +152,7 @@ main {
     color: var(--textSecundary);
     width: 230px;
     padding: 5px;
+    margin: 10px;
 }
 .game-main > img {
     width: 100%;
