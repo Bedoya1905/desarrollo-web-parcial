@@ -32,6 +32,8 @@ html, body {
 
 div {
 
+    &>h2{margin-top: 0;}
+
     &.MainDiv{
 
         display: grid;
@@ -129,7 +131,11 @@ div {
 
         overflow-y: auto;
         overflow-x: hidden;
-        scrollbar-color: var(--higlight) var(--windowColor);
+        scrollbar-color: var(--higlight) var(--mainColor);
+        scrollbar-width: thin;
+
+        border-bottom: 2px solid var(--mainColor);
+        border-top: 2px solid var(--mainColor);
     }
 
     &.CartItem{
