@@ -29,7 +29,7 @@ const library = [
 ];
 
 // Cambiar esto despues al resto de las cosas
-const setGamesDisplay = (arr = library, docElement) => {
+const setGamesDisplay = (arr = library, docElement, buttonAddID) => {
     docElement.innerHTML += arr.map(
         // Toca cambiar esto para que aguante lo del cambio en ofertas
         ({ id, title, release, developer, boxArt, price }) => {
@@ -39,16 +39,15 @@ const setGamesDisplay = (arr = library, docElement) => {
                     <p class="game-date">${getDateString(release)}</p>
                     <img src="${boxArt}">
                     <p class="game-price">$${price}</p>
-                    <button class="game-add-button">Add to cart</button>
+                    <button class="game-add-button ${buttonAddID}" id=${id}>Add to cart</button>
                 </div>`
         }
     ).join("");
-/*
-    gameAddCartButtons = document.querySelectorAll(".game-add-button");
+
+    gameAddCartButtons = document.querySelectorAll(`.${buttonAddID}`);
     gameAddCartButtons.forEach(button => {
         button.addEventListener("click", () => console.log(`Click en ${button.id}`))
     });
-*/
 }
 
 const getDateString = (date) => {
@@ -56,6 +55,6 @@ const getDateString = (date) => {
     return `${date.getDay()} / ${date.getMonth() + 1} / ${date.getFullYear()}`;
 };
 
-setGamesDisplay(library, offers);
-setGamesDisplay(library, newReleases);
-setGamesDisplay(library, forYou);
+setGamesDisplay(library, offers, "button-offers-id");
+setGamesDisplay(library, newReleases, "button-newreleases-id");
+setGamesDisplay(library, forYou, "button-foryou-id");
