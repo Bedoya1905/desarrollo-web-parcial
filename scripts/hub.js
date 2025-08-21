@@ -46,9 +46,14 @@ const setGamesDisplay = (arr = library, docElement, buttonAddID) => {
 
     gameAddCartButtons = document.querySelectorAll(`.${buttonAddID}`);
     gameAddCartButtons.forEach(button => {
-        button.addEventListener("click", () => console.log(`Click en ${button.id}`))
+        button.addEventListener("click", () => addToCartGame(button.id));
     });
 }
+
+const addToCartGame = (id) => {
+    console.log(`Game #${id} added to cart`);
+};
+
 
 const getDateString = (date) => {
     // Se puede cambiar a fecha menos formal, pero esto funciona perfectamente
