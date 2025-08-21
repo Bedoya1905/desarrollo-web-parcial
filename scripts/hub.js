@@ -42,7 +42,7 @@ const setGamesDisplay = (arr = library, docElement) => {
                     <button class="game-add-button">Add to cart</button>
                 </div>`
         }
-    )
+    ).join("");
 /*
     gameAddCartButtons = document.querySelectorAll(".game-add-button");
     gameAddCartButtons.forEach(button => {
