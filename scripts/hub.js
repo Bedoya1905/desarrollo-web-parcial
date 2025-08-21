@@ -51,9 +51,20 @@ const setGamesDisplay = (arr = library, docElement, buttonAddID) => {
 }
 
 const addToCartGame = (id) => {
+    // Aviso que juego fue añadido al carrito
     console.log(`Game #${id} added to cart`);
 };
 
+/*              <div class="CartItem">
+                    <img src="images/games/ps5/silenthill2.jpg">
+                    <p>50$</p>
+                    <button>X</button>
+                </div> */
+
+const getGameFromID = (id) => {
+    const game = library.find(game => game.id === id);
+    return game
+}
 
 const getDateString = (date) => {
     // Se puede cambiar a fecha menos formal, pero esto funciona perfectamente
