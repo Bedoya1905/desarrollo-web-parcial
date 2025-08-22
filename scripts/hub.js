@@ -149,6 +149,13 @@ const getDateString = (date) => {
 };
 
 
+
+
+function addFeatured(){
+    addToCartDocument(1);
+}
+
+
 setGamesDisplay(library, offers, "button-offers-id");
 setGamesDisplay(library, newReleases, "button-newreleases-id");
 setGamesDisplay(library, forYou, "button-foryou-id");
