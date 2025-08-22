@@ -1,6 +1,8 @@
 const offers = document.getElementById("offers");
 const newReleases = document.getElementById("new");
-const forYou = document.getElementById("for-you")
+const forYou = document.getElementById("for-you");
+
+const cart = document.getElementById("Cart");
 
 const body = document.getElementsByTagName("body");
 
@@ -59,7 +61,22 @@ const addToCartGame = (id) => {
 
     const gameName = getGameNameFromID(id);
     showMessage(`${gameName} added to cart!`);
+
 };
+
+const addToCartDocument = (id) => {
+    const game = getGameFromID(id);
+    const gameCartItem = document.createElement("div");
+    const numberItemsCart = document.querySelectorAll("CartItem");
+    gameCartItem.innerHTML += `
+        <div class="CartItem" id="game-cart-number-${numberItemsCart}">
+            <img src="${game.boxArt}">
+            <p>${game.price}$</p>
+            <button id="game-delete-number-${numberItemsCart}">X</button>
+        </div>
+    `;
+
+}
 
 // Hice esto su propia funcion ya que puede ser usado en otros casos
 const showMessage = (message) => {
