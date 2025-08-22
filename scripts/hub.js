@@ -4,7 +4,7 @@ const forYou = document.getElementById("for-you");
 
 const cart = document.getElementById("Cart");
 const cartContent = document.getElementById("cart-content");
-const priceDiv = document.getElementById("priceDiv");
+const priceDiv = document.getElementById("PriceDiv");
 
 const body = document.getElementsByTagName("body");
 
@@ -69,7 +69,9 @@ const addToCartGame = (id) => {
 
     cartItems.push(getGameFromID(id));
 
-    
+    const totalPrice = getPricePurchase();
+    const priceElement = priceDiv.querySelector("#total-price");
+    priceElement.innerHTML = `${totalPrice}$`;
 };
 
 const addToCartDocument = (id) => {
