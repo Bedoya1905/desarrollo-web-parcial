@@ -73,9 +73,9 @@ const addToCartGame = (id) => {
 
 const addToCartDocument = (id) => {
     const game = getGameFromID(id);
-    const gameCartItem = document.createElement("div");
+    //const gameCartItem = document.createElement("div");
     const numberItemsCart = document.querySelectorAll("CartItem").length;
-    gameCartItem.innerHTML += `
+    cartContent.innerHTML += `
         <div class="CartItem game-id-${id}" id="game-cart-number-${numberItemsCart}">
             <img src="${game.boxArt}">
             <p>${game.price}$</p>
@@ -84,8 +84,8 @@ const addToCartDocument = (id) => {
     `;
     
 
-    cartContent.appendChild(gameCartItem);
-    const deleteButton = gameCartItem.querySelector(".CartItem").querySelector(`#game-delete-number-${numberItemsCart}`);
+    //cartContent.appendChild(gameCartItem);
+    const deleteButton = cartContent.querySelector(".CartItem").querySelector(`#game-delete-number-${numberItemsCart}`);
     deleteButton.addEventListener("click", () =>  { deleteItemFromCart(numberItemsCart) });
 }
 
