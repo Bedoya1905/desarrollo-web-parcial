@@ -69,13 +69,19 @@ const addToCartGame = (id) => {
 
     cartItems.push(getGameFromID(id));
 
+    // Añade informacion al URl
+    const url = new URL(window.location);
+    const amountItemsInCart = document.querySelectorAll(".CartItem").length;
+    url.searchParams.set(`game-${amountItemsInCart}`, gameName);
+    window.history.pushState({}, "", url);
+
     updatePriceElement();
 };
 
 const addToCartDocument = (id) => {
     const game = getGameFromID(id);
     //const gameCartItem = document.createElement("div");
-    const numberItemsCart = document.querySelectorAll("CartItem").length;
+    const numberItemsCart = document.querySelectorAll(".CartItem").length;
     cartContent.innerHTML += `
         <div class="CartItem game-id-${id}" id="game-cart-number-${numberItemsCart}">
             <img src="${game.boxArt}">
@@ -86,8 +92,8 @@ const addToCartDocument = (id) => {
     
 
     //cartContent.appendChild(gameCartItem);
-    const deleteButton = cartContent.querySelector(".CartItem").querySelector(`#game-delete-number-${numberItemsCart}`);
-    deleteButton.addEventListener("click", () =>  { deleteItemFromCart(numberItemsCart) });
+    //const deleteButton = cartContent.querySelector(".CartItem").querySelector(`#game-delete-number-${numberItemsCart}`);
+    //deleteButton.addEventListener("click", () =>  { deleteItemFromCart(numberItemsCart) });
 }
 
 const getPricePurchase = () => {
@@ -111,6 +117,13 @@ const deleteItemFromCart = (numberItemCart) => {
     itemToDelete.remove();
     indexGameDeleted = cartItems.findIndex(item => item.id === gameId);
     cartItems.splice(indexGameDeleted, 1);
+
+    // Eliminar link
+    const url = new URL(window.location);
+    console.log(numberItemCart + 1);
+    url.searchParams.delete(`game-${numberItemCart + 1}`);
+    window.history.pushState({}, "", url);
+
     updatePriceElement();
 };
 
