@@ -2,6 +2,8 @@ const offers = document.getElementById("offers");
 const newReleases = document.getElementById("new");
 const forYou = document.getElementById("for-you")
 
+const body = document.getElementsByTagName("body");
+
 const showMoreOffers = document.getElementById("show-more-offers");
 
 // Clase de Game
@@ -53,12 +55,15 @@ const setGamesDisplay = (arr = library, docElement, buttonAddID) => {
 const addToCartGame = (id) => {
     // Aviso que juego fue añadido al carrito
     console.log(`Game #${id} added to cart`);
+    id = parseInt(id);
     const gameName = getGameNameFromID(id);
     const addCartNotif = document.createElement("div");
+    document.body.appendChild(addCartNotif);
     addCartNotif.innerHTML = 
     `<div id="message">
         <p>${gameName} added to cart!</p>
     </div>`;
+
     setTimeout(() => {
         addCartNotif.remove();
     }, 3000);
@@ -76,6 +81,7 @@ const getGameFromID = (id) => {
 }
 // Una version mas pequeña de la anterior funcion si por alguan razon solo es necesario el nombre del juego
 const getGameNameFromID = (id) => {
+    //id = parseInt(id);
     const game = getGameFromID(id);
     return game.title;
 }
