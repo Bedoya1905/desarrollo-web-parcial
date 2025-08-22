@@ -103,9 +103,10 @@ const getPricePurchase = () => {
 const deleteItemFromCart = (numberItemCart) => {
     const itemToDelete = document.getElementById(`game-cart-number-${numberItemCart}`);
     const gameId = itemToDelete.classList[1].replace(/\D+/, "");
-    console.log(gameId);
+    //console.log(gameId);
     itemToDelete.remove();
-
+    indexGameDeleted = cartItems.findIndex(item => item.id === gameId);
+    cartItems.splice(indexGameDeleted, 1);
 };
 
 // Hice esto su propia funcion ya que puede ser usado en otros casos
