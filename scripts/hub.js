@@ -53,10 +53,15 @@ const setGamesDisplay = (arr = library, docElement, buttonAddID) => {
 const addToCartGame = (id) => {
     // Aviso que juego fue añadido al carrito
     console.log(`Game #${id} added to cart`);
-    const game = getGameFromID(id);
+    const gameName = getGameNameFromID(id);
     const addCartNotif = document.createElement("div");
     addCartNotif.innerHTML = 
-    ""
+    `<div id="message">
+        <p>${gameName} added to cart!</p>
+    </div>`;
+    setTimeout(() => {
+        addCartNotif.remove();
+    }, 3000);
 };
 
 /*              <div class="CartItem">
