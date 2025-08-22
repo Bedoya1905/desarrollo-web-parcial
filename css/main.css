@@ -149,6 +149,8 @@ div {
 
         border-bottom: 2px solid var(--mainColor);
         border-top: 2px solid var(--mainColor);
+
+        text-align: center;
     }
 
     &.CartItem{
@@ -384,6 +386,17 @@ a {
 }
 
 
+#message {
+    position: fixed;
+    bottom: 20px;   /* margen desde abajo */
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px;
+    color: white;
+    background-color: #F2845C;
+}
+
+
 
 @media only screen and (max-width: 1350px) {
 
@@ -401,5 +414,5 @@ a {
         height: 18vh;
         width: 100vw;
     }
-    
-}
+}    
+

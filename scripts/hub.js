@@ -1,6 +1,12 @@
 const offers = document.getElementById("offers");
 const newReleases = document.getElementById("new");
-const forYou = document.getElementById("for-you")
+const forYou = document.getElementById("for-you");
+
+const cart = document.getElementById("Cart");
+const cartContent = document.getElementById("cart-content");
+const priceDiv = document.getElementById("PriceDiv");
+
+const body = document.getElementsByTagName("body");
 
 const showMoreOffers = document.getElementById("show-more-offers");
 
@@ -27,9 +33,10 @@ const library = [
     new Game(2, "College Football 26", "Sports", "EA Sports", "./images/games/ps5/collegefooball.jpg", new Date(2025, 6, 10), 70, 0.10),
     new Game(3, "Silent Hill 2", "Survival horror", "Konami", "./images/games/ps5/silenthill2.jpg", new Date(2024, 9, 8), 50, 0.4)
 ];
+const cartItems = [];
 
 // Cambiar esto despues al resto de las cosas
-const setGamesDisplay = (arr = library, docElement) => {
+const setGamesDisplay = (arr = library, docElement, buttonAddID) => {
     docElement.innerHTML += arr.map(
         // Toca cambiar esto para que aguante lo del cambio en ofertas
         ({ id, title, release, developer, boxArt, price }) => {
@@ -39,16 +46,101 @@ const setGamesDisplay = (arr = library, docElement) => {
                     <p class="game-date">${getDateString(release)}</p>
                     <img src="${boxArt}">
                     <p class="game-price">$${price}</p>
-                    <button class="game-add-button">Add to cart</button>
+                    <button class="game-add-button ${buttonAddID}" id=${id}>Add to cart</button>
                 </div>`
-        }
-    )
-/*
-    gameAddCartButtons = document.querySelectorAll(".game-add-button");
+        }).join("");
+
+    gameAddCartButtons = document.querySelectorAll(`.${buttonAddID}`);
     gameAddCartButtons.forEach(button => {
-        button.addEventListener("click", () => console.log(`Click en ${button.id}`))
+        button.addEventListener("click", () => addToCartGame(button.id));
     });
-*/
+}
+
+const addToCartGame = (id) => {
+    // Aviso que juego fue añadido al carrito
+    console.log(`Game #${id} added to cart`);
+    id = parseInt(id);
+
+    const gameName = getGameNameFromID(id);
+    showMessage(`${gameName} added to cart!`);
+
+    addToCartDocument(id);
+
+    cartItems.push(getGameFromID(id));
+
+    updatePriceElement();
+};
+
+const addToCartDocument = (id) => {
+    const game = getGameFromID(id);
+    const gameCartItem = document.createElement("div");
+    const numberItemsCart = document.querySelectorAll("CartItem").length;
+    gameCartItem.innerHTML += `
+        <div class="CartItem game-id-${id}" id="game-cart-number-${numberItemsCart}">
+            <img src="${game.boxArt}">
+            <p>${game.price}$</p>
+            <button id="game-delete-number-${numberItemsCart}">X</button>
+        </div>
+    `;
+    
+
+    cartContent.appendChild(gameCartItem);
+    const deleteButton = gameCartItem.querySelector(".CartItem").querySelector(`#game-delete-number-${numberItemsCart}`);
+    deleteButton.addEventListener("click", () =>  { deleteItemFromCart(numberItemsCart) });
+}
+
+const getPricePurchase = () => {
+    let price = 0;
+    cartItems.forEach(item => {
+        price += item.price;
+    });
+    return price;
+};
+
+const updatePriceElement = () => {
+    const totalPrice = getPricePurchase();
+    const priceElement = priceDiv.querySelector("#total-price");
+    priceElement.innerHTML = `${totalPrice}$`;
+};
+
+const deleteItemFromCart = (numberItemCart) => {
+    const itemToDelete = document.getElementById(`game-cart-number-${numberItemCart}`);
+    const gameId = itemToDelete.classList[1].replace(/\D+/, "");
+    //console.log(gameId);
+    itemToDelete.remove();
+    indexGameDeleted = cartItems.findIndex(item => item.id === gameId);
+    cartItems.splice(indexGameDeleted, 1);
+    updatePriceElement();
+};
+
+// Hice esto su propia funcion ya que puede ser usado en otros casos
+const showMessage = (message) => {
+    const messageBox = document.createElement("div");
+    messageBox.innerHTML =
+    `<div id="message">
+        <p>${message}</p>
+    </div>`
+    document.body.appendChild(messageBox);
+    setTimeout(() => {
+        messageBox.remove();
+    }, 3000);
+};
+
+/*              <div class="CartItem">
+                    <img src="images/games/ps5/silenthill2.jpg">
+                    <p>50$</p>
+                    <button>X</button>
+                </div> */
+
+const getGameFromID = (id) => {
+    const game = library.find(game => game.id === id);
+    return game
+}
+// Una version mas pequeña de la anterior funcion si por alguan razon solo es necesario el nombre del juego
+const getGameNameFromID = (id) => {
+    //id = parseInt(id);
+    const game = getGameFromID(id);
+    return game.title;
 }
 
 const getDateString = (date) => {
@@ -56,8 +148,7 @@ const getDateString = (date) => {
     return `${date.getDay()} / ${date.getMonth() + 1} / ${date.getFullYear()}`;
 };
 
-setGamesDisplay(library, offers);
-setGamesDisplay(library, offers);
-setGamesDisplay(library, offers);
-setGamesDisplay(library, newReleases);
-setGamesDisplay(library, forYou);
+
+setGamesDisplay(library, offers, "button-offers-id");
+setGamesDisplay(library, newReleases, "button-newreleases-id");
+setGamesDisplay(library, forYou, "button-foryou-id");
