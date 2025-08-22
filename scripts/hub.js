@@ -56,16 +56,21 @@ const addToCartGame = (id) => {
     // Aviso que juego fue añadido al carrito
     console.log(`Game #${id} added to cart`);
     id = parseInt(id);
-    const gameName = getGameNameFromID(id);
-    const addCartNotif = document.createElement("div");
-    document.body.appendChild(addCartNotif);
-    addCartNotif.innerHTML = 
-    `<div id="message">
-        <p>${gameName} added to cart!</p>
-    </div>`;
 
+    const gameName = getGameNameFromID(id);
+    showMessage(`${gameName} added to cart!`);
+};
+
+// Hice esto su propia funcion ya que puede ser usado en otros casos
+const showMessage = (message) => {
+    const messageBox = document.createElement("div");
+    messageBox.innerHTML =
+    `<div id="message">
+        <p>${message}</p>
+    </div>`
+    document.body.appendChild(messageBox);
     setTimeout(() => {
-        addCartNotif.remove();
+        messageBox.remove();
     }, 3000);
 };
 
