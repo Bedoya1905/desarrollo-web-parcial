@@ -79,7 +79,7 @@ const addToCartDocument = (id) => {
         <div class="CartItem game-id-${id}" id="game-cart-number-${numberItemsCart}">
             <img src="${game.boxArt}">
             <p>${game.price}$</p>
-            <button id="game-delete-number-${numberItemsCart}">X</button>
+            <button id="game-delete-number-${numberItemsCart}" onclick="deleteItemFromCart(${numberItemsCart})">X</button>
         </div>
     `;
     
