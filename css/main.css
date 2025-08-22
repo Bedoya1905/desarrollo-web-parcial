@@ -32,14 +32,26 @@ html, body {
 
 div {
 
+    &>h2{margin-top: 0;}
+
     &.MainDiv{
 
         display: grid;
         grid-template-areas:
-            'header header header header header header header'
-            'main main main main main main main';
+            'header header header header header'
+            'aside main main main main';
         grid-template-rows: 7vh 1fr;
         height: 100vh;
+    }
+    &.MainDiv2{
+
+        display: grid;
+        grid-template-areas:
+            'header header header header header'
+            'main main main main main';
+        grid-template-rows: 7vh 1fr;
+        height: 100vh;
+        align-items: center;
     }
 
     &.ContentHeading{
@@ -107,11 +119,13 @@ div {
 
     &.ContentLibrary{
         display: flex;
-        overflow-x: auto;
+        flex-wrap: nowrap;
 
-        overflow-y:auto;
-        overflow-x: hidden;
-        scrollbar-color: var(--higlight) var(--windowColor);
+        overflow-y:hidden;
+        overflow-x: auto;
+        scrollbar-color: var(--higlight) var(--mainColor);
+
+        gap: 15px;
     }
 
     &.line{
@@ -120,6 +134,56 @@ div {
         height: 2px;
         width: 100%;
     }
+
+    &#Cart, &#cart-content{
+        display: flex;
+        flex-direction: column;
+        padding-right: 4%;
+        gap: 20px;
+        width: 13.5vw;
+
+        overflow-y: auto;
+        overflow-x: hidden;
+        scrollbar-color: var(--higlight) var(--mainColor);
+        scrollbar-width: thin;
+
+        border-bottom: 2px solid var(--mainColor);
+        border-top: 2px solid var(--mainColor);
+
+        text-align: center;
+    }
+
+    &.CartItem{
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: right;
+
+
+        height: 200px;
+        background-color: var(--mainColor);
+        padding: 5px 5px 5px 10px;
+        gap: 0.8vw;
+
+        box-shadow: 3px 3px 6px 1px rgba(0, 0, 0, 0.3);
+
+        & > img{
+            align-self: center;
+            width: 108px;
+            height: auto;
+            margin-right: 5px;
+        }
+        & > button{width:20px; margin: 0;}
+        & > button:hover{width: 24px;}
+    }
+
+
+    &#PriceDiv {
+        & > p{text-align: center;}
+    }
+
+    &.AboutUs {display: flex; align-items: center; justify-content: center; justify-self: center; align-self: center; gap: 25px; margin-top: 30px; margin-bottom: 30px; flex-wrap: wrap;}
+        
 
 }
 
@@ -146,12 +210,18 @@ header {
 
 aside {
 
-    padding: 3vh 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 3vh 0;
+    width: 14vw;
+    height: 87vh;
 
     grid-area:aside;
 
     background-color: var(--asideColor);
-    height: 97vh;
 
     & > h2 {
         margin-top: 0;
@@ -179,10 +249,29 @@ main {
     overflow-x: hidden;
     scrollbar-color: var(--higlight) var(--windowColor);
 
+    &.AboutUsMain{padding-left: 0; align-items: center; justify-content: center; justify-self: center; align-self: center;}
+
 }
 
 
 button {
+
+    width: 80px;
+    background-color: var(--headerColor);
+    color: var(--higlight);
+    border: 2px solid var(--higlight);
+    
+    margin: 0 10px 0 10px;
+
+    padding: 0;
+    font: inherit;  
+    cursor: pointer;
+    outline: none; 
+    appearance: none;
+
+    box-shadow: 3px 3px 6px 1px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-out;
+    
 
     &.game-add-button {
         width: 130px;
@@ -200,7 +289,7 @@ button {
 
         transition: all 0.3s ease-out;
     }
-    &.game-add-button:hover {background-color: var(--higlightSelected);}
+    &.game-add-button:hover {background-color: var(--higlightSelected); color: var(--texHighlight);}
 
     &.showMore {
         width: 130px;
@@ -222,7 +311,7 @@ button {
     &.showMore:hover {color: var(--higlightSelected); background-color: var(--windowColor); width: 134px; padding: 1px 2px 1px 2px; border: 3px solid var(--higlightSelected);}
 
 }
-
+button:hover {color: var(--higlightSelected); background-color: var(--windowColor); width: 90px; border: 3px solid var(--higlightSelected);}
 
 a {
 
@@ -253,7 +342,7 @@ a {
 #offers, #new, #for-you {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
 
 
@@ -267,14 +356,15 @@ a {
     background-color: var(--windowColor);
     color: var(--textSecundary);
     width: 240px;
+    min-width: 220px;
     padding: 5px;
-    margin: 10px;
+    margin: 10px 0;
 
     transition: all 0.3s ease-out;
 
     box-shadow: 3px 3px 6px 1px rgba(0, 0, 0, 0.3);
 }
-.game-main:hover {width: 260px;}
+.game-main:hover {width: 260px; min-width: 240px;}
 
 .game-main > img {
     width: 90%;
@@ -296,30 +386,105 @@ a {
 }
 
 
-form {
-
-    display: flex;
-    align-items: stretch;
-    
-    & > input[type="text"] {
-        background-color: var(--headerColor);
-        border: 2px solid var(--higlight);
-        color: var(--higlight);
-    }
-    & > input[type="submit"] {
-        width: 90px;
-        background-color: var(--higlight);
-        color: var(--texHighlight);
-        border: 1.5px solid var(--higlight);
-
-        padding: 0;
-        font: inherit;  
-        cursor: pointer;
-        outline: none; 
-        appearance: none;
-
-        transition: all 0.3s ease-out;
-    }
-    & > input[type="submit"]:hover {width: 92px; background-color: var(--higlightSelected);}
-
+#message {
+    position: fixed;
+    bottom: 20px;   /* margen desde abajo */
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px;
+    color: white;
+    background-color: #F2845C;
 }
+
+
+
+@media only screen and (max-width: 1350px) {
+
+    div{
+
+        &.MainDiv{
+            display: flex;
+            flex-direction: column;
+        }
+
+        &.FeaturedContent{
+
+            display: grid;
+            grid-template-areas:
+                'title'
+                'front'
+                'price'
+                'button';
+            align-items: center;
+            justify-content: center;
+
+            color: var(--textSecundary);
+
+            height: 500px;
+            background-color: var(--windowColor);
+            padding: 10px 10px 10px 20px;
+            margin: 0 10vw;
+            gap: 20px;
+
+            box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.3);
+
+            & > .FeaturedContentFront {
+                grid-area:front;
+                width: 216px;
+                height: auto;
+            }
+            & > .FeaturedContentImages{
+                display: none;
+            }
+            & > h1{grid-area:title; margin-top: 0; align-self: center; text-align: center;}
+            & > p{grid-area:price; margin-bottom: 0; align-self: center; text-align: center;}
+            & > button{grid-area:button; margin-bottom: 0; align-self: center; text-align: center; justify-self: center;}
+
+        }
+
+        &#Cart, &#cart-content{
+            flex-direction: row;
+            padding-bottom: 4%;
+            gap: 20px;
+            height: 120px;
+            min-width: 50vw;
+
+            overflow-y: hidden;
+            overflow-x: auto;
+
+            border-left: 2px solid var(--mainColor);
+            border-right: 2px solid var(--mainColor);
+
+        }
+
+        &.CartItem{
+            flex-direction: column-reverse;
+            justify-content:start;
+            align-items: center;
+
+            height: 120px;
+            background-color: var(--mainColor);
+            padding: 5px 5px 5px 5px;
+            gap: 0.2vw;
+
+
+            & > img{
+                align-self: center;
+                width: 54px;
+                margin-right: 0;
+            }
+            & > button{width:20px; margin: 0;}
+            & > button:hover{width: 24px;}
+        }
+
+    }
+
+    aside{
+        flex-direction: row;
+        height: 18vh;
+        width: 100vw;
+    }
+
+    
+}    
+

@@ -25,7 +25,10 @@ To do list:
 
 
 <body>
-
+    <!--
+    <div id="message">
+        <p>(Game) added to cart!</p>
+    </div>-->
     <div class="MainDiv">
 
 
@@ -34,19 +37,38 @@ To do list:
             <div class="HeaderContainer">
                 <!-- Imagen temporal de la imagen principal de la imagen (porque no se que era lo que estan planeando con este) -->
                 <a href="index.html"><img src="https://storage.needpix.com/rsynced_images/video-game-controller-147039_1280.png" alt="logo" width="35"></a>
-                <a href="pages/browser.html"><button>Browse</button></a>
             </div>
 
             <div class="HeaderContainer">
-                <a href="pages/wishlist.html"><button>Wishlist</button></a>
-                <a href="pages/cart.html"><button>Cart</button></a>
-
-                <form>
-                    <input type="text" placeholder="search" id="search" name="search">
-                    <input type="submit" value="Search">
-                </form>
+                <a href="pages/aboutUs.html"><button>About Us</button></a>
             </div>
         </header>
+
+
+        <aside>
+
+            <div>
+                <h2>Cart</h2>
+            </div>
+
+            <div id="cart-content">
+
+            </div>
+                <!--
+                <div class="CartItem">
+                    <img src="images/games/ps5/silenthill2.jpg">
+                    <p>50$</p>
+                    <button>X</button>
+                </div>
+                </div>-->
+
+            <div id="PriceDiv">
+                <p id="total-price">0$</p>
+                <button>Buy</button>
+            </div>
+            
+        </aside>
+
 
         <main>
 
@@ -64,11 +86,11 @@ To do list:
                    <img src="images/games/ps5/expedition33/5.jpg"> 
                 </div>
                 <p>50$</p>
-                <button class="game-add-button">Add to cart</button>
+                <button class="game-add-button" onclick="addFeatured()">Add to cart</button>
 
             </div>
 
-            <div class="ContentHeading" ><h1>Offers</h1> <a href="pages/browser.html"><button class="showMore" id="show-more-offers">show more</button></a></div>
+            <div class="ContentHeading"><h1>Offers</h1><button class="showMore" id="show-more-offers">show more</button></div>
             <div class="line"></div>
             <div class="ContentLibrary" id="offers">
                 <!--
@@ -139,7 +161,7 @@ To do list:
                 </div>-->
             </div>
 
-            <div class="ContentHeading"><h1>New Releases</h1> <a href="pages/browser.html"><button class="showMore">show more</button></a></div>
+            <div class="ContentHeading"><h1>New Releases</h1><button class="showMore">show more</button></div>
             <div class="line"></div>
             <div class="ContentLibrary" id="new"></div>
 
@@ -154,5 +176,6 @@ To do list:
     </div>
 
 </body>
+
 
 </html>
