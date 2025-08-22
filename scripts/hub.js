@@ -111,6 +111,7 @@ const deleteItemFromCart = (numberItemCart) => {
     itemToDelete.remove();
     indexGameDeleted = cartItems.findIndex(item => item.id === gameId);
     cartItems.splice(indexGameDeleted, 1);
+    updatePriceElement();
 };
 
 // Hice esto su propia funcion ya que puede ser usado en otros casos
