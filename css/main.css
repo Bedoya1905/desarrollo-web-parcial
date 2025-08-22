@@ -407,6 +407,76 @@ a {
             flex-direction: column;
         }
 
+        &.FeaturedContent{
+
+            display: grid;
+            grid-template-areas:
+                'title'
+                'front'
+                'price'
+                'button';
+            align-items: center;
+            justify-content: center;
+
+            color: var(--textSecundary);
+
+            height: 500px;
+            background-color: var(--windowColor);
+            padding: 10px 10px 10px 20px;
+            margin: 0 10vw;
+            gap: 20px;
+
+            box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.3);
+
+            & > .FeaturedContentFront {
+                grid-area:front;
+                width: 216px;
+                height: auto;
+            }
+            & > .FeaturedContentImages{
+                display: none;
+            }
+            & > h1{grid-area:title; margin-top: 0; align-self: center; text-align: center;}
+            & > p{grid-area:price; margin-bottom: 0; align-self: center; text-align: center;}
+            & > button{grid-area:button; margin-bottom: 0; align-self: center; text-align: center; justify-self: center;}
+
+        }
+
+        &#Cart, &#cart-content{
+            flex-direction: row;
+            padding-bottom: 4%;
+            gap: 20px;
+            height: 120px;
+            min-width: 50vw;
+
+            overflow-y: hidden;
+            overflow-x: auto;
+
+            border-left: 2px solid var(--mainColor);
+            border-right: 2px solid var(--mainColor);
+
+        }
+
+        &.CartItem{
+            flex-direction: column-reverse;
+            justify-content:start;
+            align-items: center;
+
+            height: 120px;
+            background-color: var(--mainColor);
+            padding: 5px 5px 5px 5px;
+            gap: 0.2vw;
+
+
+            & > img{
+                align-self: center;
+                width: 54px;
+                margin-right: 0;
+            }
+            & > button{width:20px; margin: 0;}
+            & > button:hover{width: 24px;}
+        }
+
     }
 
     aside{
@@ -414,5 +484,7 @@ a {
         height: 18vh;
         width: 100vw;
     }
+
+    
 }    
 
