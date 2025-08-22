@@ -3,6 +3,8 @@ const newReleases = document.getElementById("new");
 const forYou = document.getElementById("for-you");
 
 const cart = document.getElementById("Cart");
+const cartContent = document.getElementById("cart-content");
+const priceDiv = document.getElementById("priceDiv");
 
 const body = document.getElementsByTagName("body");
 
@@ -62,6 +64,7 @@ const addToCartGame = (id) => {
     const gameName = getGameNameFromID(id);
     showMessage(`${gameName} added to cart!`);
 
+    addToCartDocument(id);
 };
 
 const addToCartDocument = (id) => {
@@ -75,7 +78,7 @@ const addToCartDocument = (id) => {
             <button id="game-delete-number-${numberItemsCart}">X</button>
         </div>
     `;
-
+    cartContent.appendChild(gameCartItem);
 }
 
 // Hice esto su propia funcion ya que puede ser usado en otros casos
