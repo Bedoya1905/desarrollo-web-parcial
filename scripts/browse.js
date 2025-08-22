@@ -22,6 +22,7 @@ const library = [
     new Game(1, "Expedition 33", "RPG", "Sandfall Interactive", "../images/games/ps5/expedition33/front.jpg", new Date(2025, 3, 24), 50, 0.10),
     new Game(2, "College Football 26", "Sports", "EA Sports", "../images/games/ps5/collegefooball.jpg", new Date(2025, 6, 10), 70, 0.10),
     new Game(3, "Silent Hill 2", "Survival horror", "Konami", "../images/games/ps5/silenthill2.jpg", new Date(2024, 9, 8), 50, 0.4)
+
 ];
 
 // Cambiar esto despues al resto de las cosas
