@@ -68,6 +68,8 @@ const addToCartGame = (id) => {
     addToCartDocument(id);
 
     cartItems.push(getGameFromID(id));
+
+    
 };
 
 const addToCartDocument = (id) => {
@@ -83,6 +85,14 @@ const addToCartDocument = (id) => {
     `;
     cartContent.appendChild(gameCartItem);
 }
+
+const getPricePurchase = () => {
+    let price = 0;
+    cartItems.forEach(item => {
+        price += item.price;
+    });
+    return price;
+};
 
 // Hice esto su propia funcion ya que puede ser usado en otros casos
 const showMessage = (message) => {
