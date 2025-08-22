@@ -48,8 +48,7 @@ const setGamesDisplay = (arr = library, docElement, buttonAddID) => {
                     <p class="game-price">$${price}</p>
                     <button class="game-add-button ${buttonAddID}" id=${id}>Add to cart</button>
                 </div>`
-        }
-    ).join("");
+        }).join("");
 
     gameAddCartButtons = document.querySelectorAll(`.${buttonAddID}`);
     gameAddCartButtons.forEach(button => {
@@ -148,6 +147,7 @@ const getDateString = (date) => {
     // Se puede cambiar a fecha menos formal, pero esto funciona perfectamente
     return `${date.getDay()} / ${date.getMonth() + 1} / ${date.getFullYear()}`;
 };
+
 
 setGamesDisplay(library, offers, "button-offers-id");
 setGamesDisplay(library, newReleases, "button-newreleases-id");
