@@ -136,6 +136,8 @@ div {
 
         border-bottom: 2px solid var(--mainColor);
         border-top: 2px solid var(--mainColor);
+
+        text-align: center;
     }
 
     &.CartItem{
