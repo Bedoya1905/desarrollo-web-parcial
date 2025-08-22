@@ -53,6 +53,10 @@ const setGamesDisplay = (arr = library, docElement, buttonAddID) => {
 const addToCartGame = (id) => {
     // Aviso que juego fue añadido al carrito
     console.log(`Game #${id} added to cart`);
+    const game = getGameFromID(id);
+    const addCartNotif = document.createElement("div");
+    addCartNotif.innerHTML = 
+    ""
 };
 
 /*              <div class="CartItem">
@@ -64,6 +68,11 @@ const addToCartGame = (id) => {
 const getGameFromID = (id) => {
     const game = library.find(game => game.id === id);
     return game
+}
+// Una version mas pequeña de la anterior funcion si por alguan razon solo es necesario el nombre del juego
+const getGameNameFromID = (id) => {
+    const game = getGameFromID(id);
+    return game.title;
 }
 
 const getDateString = (date) => {
