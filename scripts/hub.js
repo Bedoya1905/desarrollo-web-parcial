@@ -77,15 +77,19 @@ const addToCartGame = (id) => {
 const addToCartDocument = (id) => {
     const game = getGameFromID(id);
     const gameCartItem = document.createElement("div");
-    const numberItemsCart = document.querySelectorAll("CartItem");
+    const numberItemsCart = document.querySelectorAll("CartItem").length;
     gameCartItem.innerHTML += `
-        <div class="CartItem" id="game-cart-number-${numberItemsCart}">
+        <div class="CartItem game-id-${id}" id="game-cart-number-${numberItemsCart}">
             <img src="${game.boxArt}">
             <p>${game.price}$</p>
             <button id="game-delete-number-${numberItemsCart}">X</button>
         </div>
     `;
+    
+
     cartContent.appendChild(gameCartItem);
+    const deleteButton = gameCartItem.querySelector(".CartItem").querySelector(`#game-delete-number-${numberItemsCart}`);
+    deleteButton.addEventListener("click", () =>  { deleteItemFromCart(numberItemsCart) });
 }
 
 const getPricePurchase = () => {
@@ -94,6 +98,14 @@ const getPricePurchase = () => {
         price += item.price;
     });
     return price;
+};
+
+const deleteItemFromCart = (numberItemCart) => {
+    const itemToDelete = document.getElementById(`game-cart-number-${numberItemCart}`);
+    const gameId = itemToDelete.classList[1].replace(/\D+/, "");
+    console.log(gameId);
+    itemToDelete.remove();
+
 };
 
 // Hice esto su propia funcion ya que puede ser usado en otros casos
