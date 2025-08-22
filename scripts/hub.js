@@ -69,9 +69,7 @@ const addToCartGame = (id) => {
 
     cartItems.push(getGameFromID(id));
 
-    const totalPrice = getPricePurchase();
-    const priceElement = priceDiv.querySelector("#total-price");
-    priceElement.innerHTML = `${totalPrice}$`;
+    updatePriceElement();
 };
 
 const addToCartDocument = (id) => {
@@ -98,6 +96,12 @@ const getPricePurchase = () => {
         price += item.price;
     });
     return price;
+};
+
+const updatePriceElement = () => {
+    const totalPrice = getPricePurchase();
+    const priceElement = priceDiv.querySelector("#total-price");
+    priceElement.innerHTML = `${totalPrice}$`;
 };
 
 const deleteItemFromCart = (numberItemCart) => {
